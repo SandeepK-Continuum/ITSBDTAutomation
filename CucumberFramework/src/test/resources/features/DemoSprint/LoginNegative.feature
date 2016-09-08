@@ -7,7 +7,6 @@ Scenario Outline: Verify authorized login
  Given User can navigate to ITS Portal
  When Enter Login credentials "<EmailId>" and  "<Password>"
  Then Verify user is login to ITS portal
- And  Dashboard is displayed by default
  And Verify user is able to logout
  Examples: 
  |      EmailId                |  Password  |

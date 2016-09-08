@@ -33,13 +33,16 @@ public class LoginPage {
 		wd.clearandSendKeys(pwd, password);
 		wd.changeCheckboxStatus( rememberMeCheckbox,"check");
 		wd.clickElement(loginBtn);
-		 if(wd.isAlertPresent())
-			    wd.acceptAlert();
-		
-			 wd.clearandSendKeys(emaild, emailId);
-			 wd.clearandSendKeys(pwd, password);
-   			wd.clickElement(loginBtn);
-	  
+		wd.waitFor(3000);
+	
+//		 if(wd.isAlertPresent())
+//		    {
+//			 wd.acceptAlert();
+//		
+//			 wd.clearandSendKeys(emaild, emailId);
+//			 wd.clearandSendKeys(pwd, password);
+//   			wd.clickElement(loginBtn);
+//		    }
 				
 	}
 
@@ -51,6 +54,16 @@ public class LoginPage {
 		Connection conn =DatabaseUtility.createConnection(databaseName, sqlServerURL, username, password);
 	if(conn!=null)
 		System.out.println("Database connection made");
+	}
+
+	public void openApplication() {
+		wd.openApplication(Utilities.getMavenProperties("applicationUrl"));
+		
+	}
+	
+	public void openNOCApplication() {
+		wd.openNOCApplication();
+		
 	}
 
 }

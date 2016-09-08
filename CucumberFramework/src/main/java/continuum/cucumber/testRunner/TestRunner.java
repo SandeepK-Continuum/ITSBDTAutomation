@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import continuum.cucumber.DriverFactory;
 import cucumber.api.testng.TestNGCucumberRunner;
 import cucumber.api.testng.TestNgReporter;
 import cucumber.api.CucumberOptions;
@@ -22,19 +21,17 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import cucumber.api.testng.TestNGCucumberRunner;
 
 
-
-
-
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features = "src//test//resources//features//DemoSprint//ITSBanner.feature",
+features = "src//test//resources//features//DemoSprint",
 glue="continuum.cucumber.stepDefinations",
 plugin = {
 "pretty",
 "html:test-report/cucumber",
 "json:test-report/cucumber.json",
 "rerun:target/rerun.txt" },
-tags = {"@SmokeTest"}
+tags = {"@SmokeTest"},
+dryRun=false
 )
 public class TestRunner extends AbstractTestNGCucumberTests
 {
